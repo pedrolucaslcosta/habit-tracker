@@ -73,10 +73,10 @@ export default function HabitsTable() {
     return (
         <>
         <div className="flex justify-between v-align-middle">
-            <h1>Hábitos</h1>
-            <button className=""
+            <h1 className="text-3xl font-bold">Hábitos</h1>
+            <button className="btn btn-sm btn-circle btn-neutral"
                 onClick={() => document.getElementById('my_modal_5').showModal()}>
-                <PlusIcon></PlusIcon>
+                <PlusIcon />
             </button>
         </div>
 
