@@ -77,7 +77,7 @@ export default function HabitsTable() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th className="min-w-[50vw] bg-background">
+                        <th className="min-w-[40vw] sticky left-0 bg-background">
                         </th>
                         {weekDates.map((date) => (
                             <th key={date}>
@@ -89,7 +89,7 @@ export default function HabitsTable() {
                 <tbody>
                     {habits.map((habit) => (
                         <tr key={habit.id}>
-                            <td className="min-w-[50vw] bg-background">{habit.title}</td>
+                            <td className="min-w-[40vw] sticky left-0 bg-background">{habit.title}</td>
 
                             {weekDates.map((date) => {
                                 const logEntry = logs.find(
@@ -99,7 +99,7 @@ export default function HabitsTable() {
                                 return (
                                     <td key={date}>
                                         <input
-                                            type="checkbox" className="checkbox checkbox-sm"
+                                            type="checkbox" className="checkbox checkbox-md"
                                             checked={logEntry?.status || false}
                                             onChange={() => toggleStatus(habit.id, date, logEntry)}
                                         />
