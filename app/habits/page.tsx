@@ -12,8 +12,7 @@ export default async function Habits() {
 
     return (
         <>
-            <pre>hi {JSON.stringify(habits, null, 2)}</pre>
-
+            <h1>Hábitos</h1>
             <HabitsTable />
         </>
     );

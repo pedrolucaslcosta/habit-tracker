@@ -12,7 +12,7 @@ export default function HabitsTable() {
     startOfWeek.setDate(today.getDate() - today.getDay() + 1); // Segunda-feira
 
     // Gera as datas de segunda a domingo (YYYY-MM-DD)
-    const weekDates = Array.from({ length: 7 }, (_, i) => {
+    const weekDates = Array.from({ length: 5 }, (_, i) => {
         const date = new Date(startOfWeek);
         date.setDate(startOfWeek.getDate() + i);
         return date.toISOString().split("T")[0];
@@ -77,9 +77,11 @@ export default function HabitsTable() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Hábito</th>
+                        <th></th>
                         {weekDates.map((date) => (
-                            <th key={date}>{date}</th>
+                            <th key={date}>
+                                {date.split("-")[2]}
+                            </th>
                         ))}
                     </tr>
                 </thead>
