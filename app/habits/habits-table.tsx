@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import AddHabitModal from "./add-habit";
+import { PlusIcon } from "lucide-react";
 
 export default function HabitsTable() {
     const supabase = createClient();
@@ -18,7 +19,7 @@ export default function HabitsTable() {
         date.setDate(startOfWeek.getDate() + i);
         return date.toISOString().split("T")[0];
     });
-    
+
     async function fetchData() {
         // Pega hábitos
         const { data: habitsData } = await supabase.from("habits").select("id, title");
@@ -37,7 +38,7 @@ export default function HabitsTable() {
     useEffect(() => {
         fetchData();
     }, []);
-    
+
     async function toggleStatus(habitId: number, date: string, logEntry?: { id: number; status: boolean }) {
         if (logEntry) {
             // Atualiza log existente
@@ -71,15 +72,13 @@ export default function HabitsTable() {
 
     return (
         <>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button>
-{/* 
-            <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-blue-600 text-white px-4 py-2 rounded"
-            >
-                Adicionar Hábito
-            </button> */}
+        <div className="flex justify-between v-align-middle">
+            <h1>Hábitos</h1>
+            <button className=""
+                onClick={() => document.getElementById('my_modal_5').showModal()}>
+                <PlusIcon></PlusIcon>
+            </button>
+        </div>
 
             {/* <AddHabitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
             <AddHabitModal onHabitAdded={fetchData} />

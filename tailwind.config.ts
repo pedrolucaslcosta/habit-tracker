@@ -75,6 +75,14 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate"), require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark", "cupcake","dracula", "valentine"], // Defina os temas que deseja usar
+    darkTheme: "dark", // Define o tema escuro padrão
+    base: true,
+    styled: true,
+    utils: true,
+    logs: true,
+  },
 } satisfies Config;
 
 export default config;

@@ -6,16 +6,16 @@ export default async function BottomNavigation() {
             <div className="btm-nav">
                 <button className="active">
                     <CalendarIcon></CalendarIcon>
-                    Hoje
+                    Hábitos
                 </button>
                 {/* <button className="">
                     <ChartLineIcon/>
                    Estatísticas
                 </button> */}
-                <button>
+                {/* <button>
                     <SquareMenuIcon/>
                     Menu
-                </button>
+                </button> */}
             </div>
         </>
     );

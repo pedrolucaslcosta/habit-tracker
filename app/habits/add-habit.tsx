@@ -29,7 +29,7 @@ export default function AddHabitModal({ onHabitAdded }: AddHabitModalProps) {
         if (insertError) {
             alert("Erro ao adicionar hábito!");
         } else {
-            setTitle(""); 
+            setTitle("");
             document.getElementById("my_modal_5").close();
             onHabitAdded();
         }
@@ -56,6 +56,9 @@ export default function AddHabitModal({ onHabitAdded }: AddHabitModalProps) {
                     </form>
                 </div>
             </div>
+            <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+            </form>
         </dialog >
     );
 }
