@@ -12,7 +12,7 @@ export default function HabitsTable() {
     startOfWeek.setDate(today.getDate() - today.getDay() + 1); // Segunda-feira
 
     // Gera as datas de segunda a domingo (YYYY-MM-DD)
-    const weekDates = Array.from({ length: 5 }, (_, i) => {
+    const weekDates = Array.from({ length: 7 }, (_, i) => {
         const date = new Date(startOfWeek);
         date.setDate(startOfWeek.getDate() + i);
         return date.toISOString().split("T")[0];
@@ -77,7 +77,8 @@ export default function HabitsTable() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th className="min-w-[50vw] bg-background">
+                        </th>
                         {weekDates.map((date) => (
                             <th key={date}>
                                 {date.split("-")[2]}
@@ -88,7 +89,8 @@ export default function HabitsTable() {
                 <tbody>
                     {habits.map((habit) => (
                         <tr key={habit.id}>
-                            <td>{habit.title}</td>
+                            <td className="min-w-[50vw] bg-background">{habit.title}</td>
+
                             {weekDates.map((date) => {
                                 const logEntry = logs.find(
                                     (log) => log.habit_id === habit.id && log.timestamp.startsWith(date)
@@ -97,7 +99,7 @@ export default function HabitsTable() {
                                 return (
                                     <td key={date}>
                                         <input
-                                            type="checkbox"
+                                            type="checkbox" className="checkbox checkbox-sm"
                                             checked={logEntry?.status || false}
                                             onChange={() => toggleStatus(habit.id, date, logEntry)}
                                         />
